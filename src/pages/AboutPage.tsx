@@ -6,7 +6,6 @@ export default function AboutPage() {
   return (
     <PageShell eyebrow="The Photographer" title="About">
       <About />
-      {/* <Footer /> */}
     </PageShell>
   );
 }
