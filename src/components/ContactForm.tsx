@@ -23,9 +23,9 @@ export default function ContactForm() {
     <section className="contact" id="contact">
       <div className="contact__head">
         <SplitText text="Contact" as="h2" className="contact__title" stagger={0.1} />
-        <div className="contact__meta">
+        {/* <div className="contact__meta">
           <span className="label">Freelance Photographer</span>
-        </div>
+        </div> */}
       </div>
 
       <Reveal className="contact__sub">

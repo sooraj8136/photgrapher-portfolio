@@ -5,7 +5,7 @@ import "./Hero.css";
 const HERO_IMG =
   "https://images.pexels.com/photos/30681572/pexels-photo-30681572.jpeg?auto=compress&cs=tinysrgb&w=2000";
 
-const meta = ["Portfolio 2022–2023", "Freelance Photographer", "Award Winner"];
+const meta = ["Portfolio 2025–2026", "Freelance Photographer", "Award Winner"];
 
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null);

@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import "./PortfolioGrid.css";
 
@@ -50,6 +50,16 @@ const SHOTS: Shot[] = [
 export default function PortfolioGrid() {
   const ref = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -58,22 +68,22 @@ export default function PortfolioGrid() {
 
   // translate from 0 to -(trackWidth - viewportWidth)
   const x = useTransform(scrollYProgress, [0, 1], ["0%", "-78%"]);
+  const showMobileGallery = isMobile || reduce;
 
   return (
     <section className="portfolio" id="portfolio">
       <div className="portfolio__head">
-        <h2 className="portfolio__title">©2022–2023</h2>
+        <h2 className="portfolio__title">©2025–2026</h2>
         <div className="portfolio__meta">
           <span className="label">Jack Evans</span>
           <span className="label">Photography Portfolio</span>
         </div>
       </div>
 
-      {reduce ? (
-        // Reduced-motion fallback: native horizontal scroll, no pinning
-        <div className="portfolio__track portfolio__track--fallback">
+      {showMobileGallery ? (
+        <div className="portfolio__track portfolio__track--mobile" role="list" aria-label="Portfolio gallery">
           {SHOTS.map((s, i) => (
-            <figure key={i} className="portfolio__cell">
+            <figure key={i} className="portfolio__cell" role="listitem">
               <img src={s.src} alt={s.alt} loading="lazy" />
               <figcaption className="portfolio__cell-label label">
                 {s.label}

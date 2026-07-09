@@ -55,11 +55,33 @@
   padding-right: var(--gutter);
 }
 
-.portfolio__track--fallback {
+.portfolio__track--mobile {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  padding: 0;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
-  padding-bottom: 1rem;
+}
+
+.portfolio__track--mobile .portfolio__cell {
+  width: min(78vw, 320px);
+  min-width: min(78vw, 320px);
+  aspect-ratio: 4 / 5;
+  scroll-snap-align: start;
+}
+
+.portfolio__track--mobile .portfolio__cell:nth-child(3n + 2),
+.portfolio__track--mobile .portfolio__cell:nth-child(3n) {
+  width: min(78vw, 320px);
+  min-width: min(78vw, 320px);
+  aspect-ratio: 4 / 5;
+}
+
+.portfolio__track--mobile .portfolio__cell-label {
+  opacity: 1;
+  transform: none;
 }
 
 .portfolio__cell {
@@ -126,6 +148,14 @@
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     padding-bottom: 1rem;
+  }
+  .portfolio__track--mobile {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    overflow-x: auto;
+    padding-bottom: 0;
+    scroll-snap-type: x mandatory;
   }
   .portfolio__cell,
   .portfolio__cell:nth-child(3n + 2),

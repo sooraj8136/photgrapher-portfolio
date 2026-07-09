@@ -66,7 +66,7 @@ export default function Services() {
       </div>
 
       <SplitText
-        text="Services"
+        text="Service"
         as="h2"
         className="services__headline"
         stagger={0.1}
