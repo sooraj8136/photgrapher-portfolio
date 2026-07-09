@@ -60,7 +60,7 @@ export default function ContactForm() {
           <input
             id="phone"
             type="tel"
-            placeholder="+44 ..."
+            placeholder="+91 ..."
             value={form.phone}
             onChange={update("phone")}
           />
@@ -73,7 +73,7 @@ export default function ContactForm() {
         </Reveal>
       </form>
 
-      <footer className="footer">
+      {/* <footer className="footer">
         <span className="footer__mark">Jack Evans</span>
         <div className="footer__info">
           <span>hello@jackevans.studio</span>
@@ -81,7 +81,7 @@ export default function ContactForm() {
           <span>London · Lisbon</span>
         </div>
         <span className="footer__copy">© Jack Evans 2023</span>
-      </footer>
+      </footer> */}
     </section>
   );
 }

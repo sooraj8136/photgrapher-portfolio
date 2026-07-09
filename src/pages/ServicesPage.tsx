@@ -6,7 +6,7 @@ export default function ServicesPage() {
   return (
     <PageShell eyebrow="What I Do" title="Services">
       <Services />
-      <Footer />
+      {/* <Footer /> */}
     </PageShell>
   );
 }

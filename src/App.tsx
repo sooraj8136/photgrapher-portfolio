@@ -7,6 +7,7 @@ import Portfolio from "./pages/Portfolio";
 import AboutPage from "./pages/AboutPage";
 import ServicesPage from "./pages/ServicesPage";
 import ContactPage from "./pages/ContactPage";
+import Footer from "./components/Footer";
 
 export default function App() {
   useLenis();
@@ -24,6 +25,7 @@ export default function App() {
           <Route path="/contact" element={<ContactPage />} />
         </Routes>
       </main>
+      <Footer />
     </BrowserRouter>
   );
 }

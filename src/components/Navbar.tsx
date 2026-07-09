@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import "./Navbar.css";
 
 const LINKS = [
-  { label: "Portfolio", path: "/portfolio" },
+  { label: "Home", path: "/" },
   { label: "About", path: "/about" },
   { label: "Services", path: "/services" },
   { label: "Contact", path: "/contact" },
