@@ -1,0 +1,26 @@
+.page {
+  padding-top: var(--nav-height);
+}
+
+.page__hero {
+  padding: var(--space-8) var(--gutter) var(--space-8);
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+.page__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-6);
+  color: var(--color-gray-400);
+}
+
+.page__title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(3rem, 12vw, 10rem);
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}

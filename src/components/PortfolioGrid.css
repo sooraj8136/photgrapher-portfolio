@@ -1,0 +1,136 @@
+.portfolio {
+  background: var(--color-black);
+  color: var(--color-white);
+  padding: var(--space-16) var(--gutter) 0;
+}
+
+.portfolio__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-8);
+  gap: var(--space-2);
+}
+
+.portfolio__title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(2.4rem, 7vw, 5.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.portfolio__meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.4rem;
+  color: var(--color-gray-400);
+  text-align: right;
+}
+
+/* Scroll-jacked filmstrip */
+.portfolio__pin {
+  /* height = horizontal travel distance; tuned so the whole track scrolls past */
+  height: 320vh;
+  position: relative;
+}
+
+.portfolio__sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.portfolio__track {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0; /* flush, no-gap row per reference */
+  will-change: transform;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+.portfolio__track--fallback {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 1rem;
+}
+
+.portfolio__cell {
+  position: relative;
+  overflow: hidden;
+  flex: 0 0 auto;
+  width: 38vw;
+  min-width: 280px;
+  aspect-ratio: 3 / 4;
+  cursor: pointer;
+  scroll-snap-align: start;
+}
+
+.portfolio__cell:nth-child(3n + 2) {
+  width: 30vw;
+  aspect-ratio: 3 / 4.4;
+}
+
+.portfolio__cell:nth-child(3n) {
+  width: 42vw;
+  aspect-ratio: 4 / 5;
+}
+
+.portfolio__cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: none; /* color images in the portfolio strip */
+  transition: transform 0.6s var(--ease-out);
+}
+
+.portfolio__cell:hover img {
+  transform: scale(1.04);
+}
+
+.portfolio__cell-label {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  z-index: 2;
+  color: var(--color-white);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.4s var(--ease-out), transform 0.4s var(--ease-out);
+  margin: 0;
+}
+
+.portfolio__cell:hover .portfolio__cell-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .portfolio__pin {
+    height: auto;
+  }
+  .portfolio__sticky {
+    position: static;
+    height: auto;
+    overflow: visible;
+  }
+  .portfolio__track {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 1rem;
+  }
+  .portfolio__cell,
+  .portfolio__cell:nth-child(3n + 2),
+  .portfolio__cell:nth-child(3n) {
+    width: 78vw;
+    aspect-ratio: 4 / 5;
+  }
+}

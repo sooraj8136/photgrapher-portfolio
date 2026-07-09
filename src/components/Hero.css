@@ -1,0 +1,135 @@
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 640px;
+  width: 100%;
+  overflow: hidden;
+  background: var(--color-black);
+}
+
+.hero__media {
+  position: absolute;
+  inset: -10% 0;
+  will-change: transform;
+}
+
+.hero__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.12) brightness(0.78);
+  animation: kenburns 16s ease-out forwards;
+}
+
+@keyframes kenburns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 10, 10, 0.55) 0%,
+    rgba(10, 10, 10, 0.25) 35%,
+    rgba(10, 10, 10, 0.55) 75%,
+    rgba(10, 10, 10, 0.85) 100%
+  );
+  pointer-events: none;
+}
+
+.hero__meta {
+  position: absolute;
+  top: calc(var(--nav-height) + 2rem);
+  left: var(--gutter);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  color: var(--color-white);
+}
+
+.hero__meta .label {
+  font-size: 0.72rem;
+  color: var(--color-gray-200);
+}
+
+.hero__wordmark {
+  position: absolute;
+  right: var(--gutter);
+  bottom: 4rem;
+  z-index: 3;
+  text-align: right;
+  color: var(--color-white);
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(3.2rem, 13vw, 11rem);
+  line-height: 0.82;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.hero__wordmark span {
+  display: block;
+  overflow: hidden;
+}
+
+.hero__scroll {
+  position: absolute;
+  bottom: 1.6rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--color-gray-200);
+}
+
+.hero__scroll .label {
+  font-size: 0.62rem;
+}
+
+.hero__scroll-line {
+  width: 1px;
+  height: 44px;
+  background: var(--color-gray-400);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__scroll-line::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: var(--color-white);
+  animation: scrollline 1.8s var(--ease-in-out) infinite;
+}
+
+@keyframes scrollline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(200%);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero__meta {
+    top: calc(var(--nav-height) + 1rem);
+  }
+  .hero__wordmark {
+    bottom: 5rem;
+  }
+}
